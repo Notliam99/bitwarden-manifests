@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: service
+metadata:
+  name: bitwarden-srv
+  namespace: bitwarden
+spec:
+  selector:
+    app: bitwarden
+  ports:
+    - name: http
+      targetPort: 80 
+      port: 80
