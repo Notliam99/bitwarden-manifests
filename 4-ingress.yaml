@@ -1,8 +1,8 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: nzdev-org-ingres
-  namespace: nzdev-org
+  name: bitwarden-ingress
+  namespace: bitwarden
   annotations:
     kubernetes.io/ingress.class: traefik-external
     link.argocd.argoproj.io/external-link: 'https://vault.nzdev.org/'
@@ -15,4 +15,3 @@ spec:
       services:
         - name: bitwarden-srv
           port: 80
-  tls:
