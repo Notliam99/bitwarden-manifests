@@ -18,6 +18,15 @@ spec:
       containers:
       - name:  web
         image: vaultwarden/server:1.29.2
+        env:
+          - name: ADMIN_TOKEN
+            value: $argon2id$v=19$m=19456,t=2,p=1$dktOMEIvMXZwcERnbStBS3pKYU9OSHE0eXp6b083MFRKY1hLSnIrUGRYOD0$rpfJWwQRolv/Sug+IbYj1rYy+KGA1ruwnZyHz/9ZSTE
+          - name: PUSH_ENABLED
+            value: true
+          - name: PUSH_INSTALLATION_ID
+            value: f71a2203-1af0-4f75-b6b9-b09d016ac4c4
+          - name: PUSH_INSTALLATION_KEY
+            value: QIz1m6nRIc2O82oqYju7
         ports:
           - name:  bitwarden
             containerPort:  80
