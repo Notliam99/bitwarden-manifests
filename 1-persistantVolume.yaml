@@ -1,32 +1,13 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: bitwarden-persistentvolume
-  namespace: bitwarden
-  labels:
-    app: bitwarden
+  name: bitwarden-vol
 spec:
-  nfs:
-    server: 192.168.50.3
-    path: /nfs/kuberneties/bitwarden
-  storageClassName: nfs
-  accessModes:
-    - ReadWriteMany
   capacity:
     storage: 9Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: bitwarden-pvc
-  namespace: bitwarden
-  labels: 
-    app: bitwarden
-spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: nfs
-  resources:
-    requests:
-      storage: 9Gi
-
+  storageClassName: nfs 
+  nfs:
+    server: 192.168.50.3
+    path: "/mnt/tank/nfs/kuberneties/bitwarden"
